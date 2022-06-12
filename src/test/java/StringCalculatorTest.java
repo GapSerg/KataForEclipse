@@ -65,7 +65,11 @@ public class StringCalculatorTest {
 
 
     }
-
+    @Test
+    public void anyElementStep6() {
+        Assert.assertEquals(dataTest.output16, strCalc.add(dataTest.input16));
+        Assert.assertEquals(dataTest.output17, strCalc.add(dataTest.input17));
+    }
 
 
 }

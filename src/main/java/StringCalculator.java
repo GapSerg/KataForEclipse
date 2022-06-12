@@ -13,18 +13,39 @@ public class StringCalculator {
            splitter="\\"+splitter;
        }
         String[] part = numbers.split(splitter);
+        if (splitter.equals("\\-")) {
 
-        for (String s : part) {
-            if (s.isEmpty()) {
-                sing=-1;
-            } else
-            {
-                result += sing*Integer.parseInt(s);
-                if (sing*Integer.parseInt(s)<0){
-                     exceptionMessage.append(" ").append(sing*Integer.parseInt(s));
+            for (String s : part) {
+                if (s.isEmpty()) {
+                    sing = -1;
+                } else {
+                    if (sing * Integer.parseInt(s) > 1000) {
+                        continue;
+                    }
+                    result += sing * Integer.parseInt(s);
+
+                    if (sing * Integer.parseInt(s) < 0) {
+                        exceptionMessage.append(" ").append(sing * Integer.parseInt(s));
+                    }
+                    sing = 1;
+
                 }
-                sing=1;
             }
+        }
+        else {
+            for (String s : part) {
+                if (Integer.parseInt(s) > 1000) {
+                    continue;
+                }
+                result += Integer.parseInt(s);
+
+                if (Integer.parseInt(s) < 0) {
+                    exceptionMessage.append(" ").append(Integer.parseInt(s));
+                }
+
+            }
+
+
         }
 
         if (exceptionMessage.length()>21)

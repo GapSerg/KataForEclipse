@@ -35,4 +35,9 @@ public class DataTest {
     protected String input15="-10,3\n-2";
     protected String output15="negatives not allowed -10 -2";
 
+    protected String input16="//.\n1200.3.1.2.2";
+    protected int output16 = 8;
+    protected String input17="12,10,1003\n1\n2";
+    protected int output17 = 25;
+
 }
