@@ -1,3 +1,6 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class StringCalculator {
 
     public int add1(String numbers,String splitter) {
@@ -58,7 +61,7 @@ public class StringCalculator {
         return result;
     }
 
-    public int add(String numbers) {
+    public int add2(String numbers) {
 
         if (numbers.isEmpty()) {
             return 0;
@@ -83,6 +86,27 @@ public class StringCalculator {
         }
 
         return add1(partOfNumbers,splitter);
+
+    }
+
+    public int add(String numbers){
+        Pattern pattern = Pattern.compile("\\[.+?\\]");
+        Matcher matcher = pattern.matcher(numbers);
+        String splitter="";
+        String  partOfNumbers;
+
+        while (matcher.find()) {
+            splitter=numbers.substring(matcher.start()+1, matcher.end()-1);
+
+        }
+        if (splitter.isEmpty()){
+            return add2(numbers);
+        }
+        else
+        {
+            partOfNumbers=numbers.substring(numbers.indexOf("\n")+1).replaceAll("\n",splitter);
+            return add1(partOfNumbers,splitter);
+        }
 
     }
 

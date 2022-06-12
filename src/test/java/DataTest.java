@@ -40,4 +40,9 @@ public class DataTest {
     protected String input17="12,10,1003\n1\n2";
     protected int output17 = 25;
 
+    protected String input18="//[-;-]\n1200-;-3-;-1-;-2-;-2";
+    protected int output18 = 8;
+    protected String input19="//[:::]\n12:::10:::1003\n1\n2";
+    protected int output19 = 25;
+
 }
