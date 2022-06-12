@@ -3,6 +3,7 @@ public class StringCalculator {
     public int add1(String numbers,String splitter) {
         int result = 0;
         int sing =1;
+        StringBuilder exceptionMessage= new StringBuilder("negatives not allowed");
 
         if (!numbers.contains(splitter)) {
             return Integer.parseInt(numbers);
@@ -19,9 +20,19 @@ public class StringCalculator {
             } else
             {
                 result += sing*Integer.parseInt(s);
+                if (sing*Integer.parseInt(s)<0){
+                     exceptionMessage.append(" ").append(sing*Integer.parseInt(s));
+                }
                 sing=1;
             }
         }
+
+        if (exceptionMessage.length()>21)
+        {
+            throw new NegativeDataException(exceptionMessage.toString());
+        }
+
+
 
         return result;
     }

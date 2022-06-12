@@ -25,10 +25,14 @@ public class DataTest {
     protected int output10 = 20;
     protected String input11="//.\n12.3.1.2\n2";
     protected int output11 = 20;
-    protected String input12="//^\n12^-10^3^1^2^2";
-    protected int output12 = 10;
+    protected String input12="//-\n12-10-3-1-2";
+    protected int output12 = 28;
+
     protected String input13="//;\n-10;-3;-2";
-    protected int output13 = -15;
-    protected String input14="//-\n-10-3--2";
-    protected int output14 = -9;
+    protected String output13="negatives not allowed -10 -3 -2";
+    protected String input14="//-\n10-3--2";
+    protected String output14="negatives not allowed -2";
+    protected String input15="-10,3\n-2";
+    protected String output15="negatives not allowed -10 -2";
+
 }
