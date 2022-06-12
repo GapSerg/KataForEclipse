@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -92,20 +94,29 @@ public class StringCalculator {
     public int add(String numbers){
         Pattern pattern = Pattern.compile("\\[.+?\\]");
         Matcher matcher = pattern.matcher(numbers);
-        String splitter="";
-        String  partOfNumbers;
 
+        String  partOfNumbers;
+        List<String> splitters=new ArrayList<>();
         while (matcher.find()) {
-            splitter=numbers.substring(matcher.start()+1, matcher.end()-1);
+            splitters.add(numbers.substring(matcher.start()+1, matcher.end()-1));
 
         }
-        if (splitter.isEmpty()){
+        if (splitters.isEmpty()){
             return add2(numbers);
         }
         else
         {
-            partOfNumbers=numbers.substring(numbers.indexOf("\n")+1).replaceAll("\n",splitter);
-            return add1(partOfNumbers,splitter);
+            partOfNumbers = numbers.substring(numbers.indexOf("\n") + 1);
+            if (splitters.size()>1) {
+                for(int i=1;i<splitters.size();i++){
+                    partOfNumbers = partOfNumbers.replaceAll(splitters.get(i), splitters.get(0));
+                }
+
+            }
+
+                partOfNumbers = partOfNumbers.replaceAll("\n", splitters.get(0));
+                return add1(partOfNumbers, splitters.get(0));
+
         }
 
     }

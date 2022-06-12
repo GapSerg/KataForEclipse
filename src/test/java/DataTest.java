@@ -45,4 +45,11 @@ public class DataTest {
     protected String input19="//[:::]\n12:::10:::1003\n1\n2";
     protected int output19 = 25;
 
+    protected String input20="//[-;-][%]\n1200-;-3-;-1-;-2-;-2%2";
+    protected int output20 = 10;
+    protected String input21="//[:::][-][%%]\n12:::10-1003%%1\n2";
+    protected int output21 = 25;
+    protected String input22="//[:][-][%]\n12:10-1003%1\n2";
+    protected int output22 = 25;
+
 }
