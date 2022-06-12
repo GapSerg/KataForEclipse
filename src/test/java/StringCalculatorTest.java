@@ -36,6 +36,8 @@ public class StringCalculatorTest {
         Assert.assertEquals(dataTest.output10, strCalc.add(dataTest.input10));
         Assert.assertEquals(dataTest.output11, strCalc.add(dataTest.input11));
         Assert.assertEquals(dataTest.output12, strCalc.add(dataTest.input12));
+        Assert.assertEquals(dataTest.output13, strCalc.add(dataTest.input13));
+        Assert.assertEquals(dataTest.output14, strCalc.add(dataTest.input14));
 
 
     }

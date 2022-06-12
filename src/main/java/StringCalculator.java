@@ -2,6 +2,7 @@ public class StringCalculator {
 
     public int add1(String numbers,String splitter) {
         int result = 0;
+        int sing =1;
 
         if (!numbers.contains(splitter)) {
             return Integer.parseInt(numbers);
@@ -12,8 +13,14 @@ public class StringCalculator {
        }
         String[] part = numbers.split(splitter);
 
-        for (String s:part) {
-        result += Integer.parseInt(s);
+        for (String s : part) {
+            if (s.isEmpty()) {
+                sing=-1;
+            } else
+            {
+                result += sing*Integer.parseInt(s);
+                sing=1;
+            }
         }
 
         return result;
