@@ -1,4 +1,5 @@
 public class StringCalculator {
+
     public int add(String numbers) {
         int result = 0;
 
@@ -10,6 +11,10 @@ public class StringCalculator {
         }
         String[] part = numbers.split(",");
 
-        return Integer.parseInt(part[0])+Integer.parseInt(part[1]);
+        for (String s:part) {
+        result += Integer.parseInt(s);
+        }
+
+        return result;
     }
 }
