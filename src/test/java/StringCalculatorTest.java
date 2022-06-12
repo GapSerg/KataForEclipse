@@ -24,9 +24,12 @@ public class StringCalculatorTest {
 
     @Test
     public void anyElement() {
-
         Assert.assertEquals(dataTest.output5, strCalc.add(dataTest.input5));
         Assert.assertEquals(dataTest.output6, strCalc.add(dataTest.input6));
+        Assert.assertEquals(dataTest.output7, strCalc.add(dataTest.input7));
+        Assert.assertEquals(dataTest.output8, strCalc.add(dataTest.input8));
 
     }
+
+
 }

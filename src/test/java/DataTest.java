@@ -11,4 +11,8 @@ public class DataTest {
     protected int output5 = 7;
     protected String input6 = "123,12,1,24";
     protected int output6 = 160;
+    protected String input7="1/n2,4";
+    protected int output7 = 7;
+    protected String input8="12/n3,1,2/n2";
+    protected int output8 = 20;
 }

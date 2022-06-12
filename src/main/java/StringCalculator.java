@@ -1,6 +1,6 @@
 public class StringCalculator {
 
-    public int add(String numbers) {
+    public int add1(String numbers) {
         int result = 0;
 
         if (numbers.isEmpty()) {
@@ -17,4 +17,11 @@ public class StringCalculator {
 
         return result;
     }
+
+    public int add(String numbers) {
+        return add1(numbers.replaceAll("/n",","));
+    }
+
+
+
 }
