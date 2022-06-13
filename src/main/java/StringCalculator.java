@@ -4,10 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
+    private final static  Pattern pattern = Pattern.compile("\\[.+?\\]");
 
-    public int add1(String numbers,String splitter) {
+    private int add1(String numbers,String splitter) {
         int result = 0;
-        int sing =1;
+        int sign =1;
         StringBuilder exceptionMessage= new StringBuilder("negatives not allowed");
 
         if (!numbers.contains(splitter)) {
@@ -22,17 +23,17 @@ public class StringCalculator {
 
             for (String s : part) {
                 if (s.isEmpty()) {
-                    sing = -1;
+                    sign = -1;
                 } else {
-                    if (sing * Integer.parseInt(s) > 1000) {
+                    if (sign * Integer.parseInt(s) > 1000) {
                         continue;
                     }
-                    result += sing * Integer.parseInt(s);
+                    result += sign * Integer.parseInt(s);
 
-                    if (sing * Integer.parseInt(s) < 0) {
-                        exceptionMessage.append(" ").append(sing * Integer.parseInt(s));
+                    if (sign * Integer.parseInt(s) < 0) {
+                        exceptionMessage.append(" ").append(sign * Integer.parseInt(s));
                     }
-                    sing = 1;
+                    sign = 1;
 
                 }
             }
@@ -63,7 +64,7 @@ public class StringCalculator {
         return result;
     }
 
-    public int add2(String numbers) {
+    private int add2(String numbers) {
 
         if (numbers.isEmpty()) {
             return 0;
@@ -97,7 +98,7 @@ public class StringCalculator {
             throw new IncorrectDataException("Initial data is not valid, please correct it!!");
         }
 
-        Pattern pattern = Pattern.compile("\\[.+?\\]");
+
         Matcher matcher = pattern.matcher(numbers);
 
         String  partOfNumbers;

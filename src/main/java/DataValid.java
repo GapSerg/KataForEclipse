@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DataValid {
+
     private boolean validator1(String someString){
         return someString.matches("(\\-?\\d+)|((\\-?\\d+)([,\n]{1}\\-?\\d+)+)");
     }
@@ -32,6 +33,8 @@ public class DataValid {
             return validator1(someString);
         }
         else {
+            if (someString.length()<5)
+                return false;
             if (someString.substring(3,4).equals("\n")) {
                 splitter = someString.substring(2, 3);
                 
