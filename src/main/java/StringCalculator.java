@@ -92,6 +92,11 @@ public class StringCalculator {
     }
 
     public int add(String numbers){
+        DataValid dataValid = new DataValid();
+        if (!dataValid.validator(numbers)){
+            throw new IncorrectDataException("Initial data is not valid, please correct it!!");
+        }
+
         Pattern pattern = Pattern.compile("\\[.+?\\]");
         Matcher matcher = pattern.matcher(numbers);
 

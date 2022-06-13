@@ -42,7 +42,7 @@ public class StringCalculatorTest {
 
     }
     @Test
-    public void negativeElementStep5() throws NegativeDataException{
+    public void negativeElementStep5() {
         try {
             strCalc.add(dataTest.input13);
             Assert.fail("Expected NegativeDataException");
@@ -83,6 +83,19 @@ public class StringCalculatorTest {
         Assert.assertEquals(dataTest.output22, strCalc.add(dataTest.input22));
     }
 
+    @Test
+    public void IncorrectInitialData(){
+        Assert.assertThrows(IncorrectDataException.class,()->{
+            strCalc.add("//[::][-][%%]\n12:::10-1003%%1\n2");
+        });
+        Assert.assertThrows(IncorrectDataException.class,()->{
+            strCalc.add("//:/n\n1\n2:4");
+        });
+        Assert.assertThrows(IncorrectDataException.class,()->{
+            strCalc.add("1,\n2,4");
+        });
 
+
+    }
 
 }
