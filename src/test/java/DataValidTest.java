@@ -72,6 +72,7 @@ public class DataValidTest {
         Assert.assertFalse( dataValid.validator("//[::][-][%%]\n12:::10-1003%%1\n2"));
         Assert.assertFalse( dataValid.validator("//[:][-][%]\n12:10-1003%1%%2"));
         Assert.assertFalse( dataValid.validator("//[:][--][%]\n-12:10-1003%1--2"));
+        Assert.assertFalse( dataValid.validator(null));
 
     }
 

@@ -22,6 +22,9 @@ public class DataValid {
     }
     public boolean validator(String someString){
         String splitter;
+        if (someString==null){
+            return false;
+        }
         if (!someString.startsWith("//"))  {
             if (someString.isEmpty()){
                 return true;
